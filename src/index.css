@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  body {
+    font-family: var(--font-site);
+  }
+
+  html:not(.dark) body {
+    background-color: var(--color-creme);
+    color: #2a2a24;
+  }
+
+  html:not(.dark) h1 {
+    font-family: var(--font-gothique);
+    font-weight: 400;
+    color: var(--color-vigne);
+  }
+}
+
+@theme {
+  --font-site: Tahoma, Verdana, 'DejaVu Sans', sans-serif;
+  --font-gothique: 'UnifrakturMaguntia', 'Old English Text MT', serif;
+  --color-vigne: #2f4f3a;
+  --color-bordeaux: #6d1f2c;
+  --color-creme: #f7f3e8;
+  --color-or: #e7d9a8;
+  --animate-fade-in: fade-in 0.3s ease-out;
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in {
+    animation: none;
+  }
+}
